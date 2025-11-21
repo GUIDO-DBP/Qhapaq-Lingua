@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Scrollbar fino */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.7);
+  border-radius: 999px;
+}
+
+/* Animaciones simples */
+.section-fade {
+  @apply transition-opacity duration-700 ease-out;
+}
+
+.section-fade-enter {
+  opacity: 0;
+}
+.section-fade-enter-active {
+  opacity: 1;
+}
+
+/* Gradiente principal tipo Edurock */
+.bg-ql-hero {
+  background: radial-gradient(circle at top, #4f46e5, #020617 55%);
+}

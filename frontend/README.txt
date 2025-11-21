@@ -1,0 +1,1 @@
+Qhapaq Lingua frontend scaffolding. Please integrate full code manually due to size limits.

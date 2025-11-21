@@ -1,0 +1,11 @@
+{
+  "files.associations": {
+    "**/src/*.css": "postcss"
+  },
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore",
+  "tailwindCSS.includeLanguages": {
+    "css": "css",
+    "postcss": "postcss"
+  }
+}
