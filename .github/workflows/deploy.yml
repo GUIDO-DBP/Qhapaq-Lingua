@@ -25,14 +25,17 @@ jobs:
         cache-dependency-path: frontend/package-lock.json
         
     - name: 📥 Install dependencies
-      run: cd frontend && npm install
+      run: |
+        cd frontend
+        npm ci --silent  # ← CAMBIA npm install por npm ci
       
     - name: 🏗️ Build
-      run: cd frontend && npm run build
+      run: |
+        cd frontend
+        npm run build
       
     - name: 🚀 Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./frontend/dist
-        force_orphan: true
