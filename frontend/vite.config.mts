@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react-swc'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/Qhapaq-Lingua/', // ← AÑADE ESTA LÍNEA (mismo nombre que tu repo)
+  base: './',  // ← CAMBIA ESTO (de '/Qhapaq-Lingua/' a './')
   server: {
     port: 5173,
     proxy: {
@@ -16,6 +16,6 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'dist' // ← AÑADE ESTO (opcional pero recomendado)
+    outDir: 'dist'
   }
 })
