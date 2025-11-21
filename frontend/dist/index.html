@@ -6,18 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script type="module" crossorigin src="./assets/index-CNkKB3Eu.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-Dt7kUxEC.css">
-    <script>
-      // Manejar redirección desde 404
-      (function(){
-        var redirect = sessionStorage.redirect;
-        delete sessionStorage.redirect;
-        if (redirect && redirect != location.pathname) {
-          history.replaceState(null, null, redirect);
-        }
-      })();
-    </script>
   </head>
   <body class="bg-ql-bg text-slate-100">
     <div id="root"></div>
+
+    <script>
+      // Solución para GitHub Pages SPA
+      const path = window.location.pathname;
+      const basePath = '/Qhapaq-Lingua';
+      
+      // Si estamos en una ruta que no es la raíz, redirigir al index
+      if (path !== basePath + '/' && path !== basePath + '/index.html') {
+        // Guardar la ruta original para React Router
+        sessionStorage.setItem('gh-pages-redirect', path);
+        window.location.href = basePath + '/';
+      }
+      
+      // Recuperar la ruta cuando React cargue
+      window.addEventListener('load', function() {
+        const redirectPath = sessionStorage.getItem('gh-pages-redirect');
+        if (redirectPath) {
+          sessionStorage.removeItem('gh-pages-redirect');
+          // React Router manejará la navegación
+          window.history.replaceState(null, null, redirectPath);
+        }
+      });
+    </script>
   </body>
 </html>
