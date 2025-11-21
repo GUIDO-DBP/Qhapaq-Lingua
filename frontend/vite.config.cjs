@@ -3,6 +3,7 @@ const reactPlugin = require('@vitejs/plugin-react-swc');
 
 module.exports = defineConfig({
   plugins: [reactPlugin && reactPlugin.default ? reactPlugin.default() : reactPlugin()],
+  base: './',  // ← AGREGA ESTA LÍNEA
   server: {
     port: 5173,
     proxy: {
@@ -14,4 +15,7 @@ module.exports = defineConfig({
       }
     },
   },
+  build: {
+    outDir: 'dist'  // ← AGREGA ESTO TAMBIÉN
+  }
 });
